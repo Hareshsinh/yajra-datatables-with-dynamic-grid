@@ -46,7 +46,7 @@ Start the local development server
     http://127.0.0.1::[your_port]/drags - dynamic grid with ordering and resizing
     
  ###Kye points before using this feature
- #####1. This migration function used to make column table where we store table column table slug,order,name,width and user id  
+ 1. This migration function used to make column table where we store table column table slug,order,name,width and user id  
         
          public function up()
             {
@@ -64,7 +64,7 @@ Start the local development server
             }
        
 
-#####2.controller & blade file predefine column list which we need to hide show..
+2.controller & blade file predefine column list which we need to hide show..
   
             //data-id = define table header name 
             //value = define database columns name which using for getting database information 
@@ -94,17 +94,17 @@ Start the local development server
             <input type="checkbox" data-id="Action" name='hide_columns[]' {{ (in_array('action',$checkedFields)) ? 'checked': '' }} value='action'> Action
             <input type="button" class="btn btn-success btn-sm" id="but_showhide" value='save grids'>// using this id = but_showhide call the function and store the information
 
-#####3.before get result please remove the information extra value like 
+3.before get result please remove the information extra value like 
    
         if(!empty($checkedFields)) {
             $checkedFields = array_diff($checkedFields,['DT_RowIndex','action']);
         }
-   **important note**: array of $checkedFields value name should be same as select query
+   *important note*: array of $checkedFields value name should be same as select query
         
         $data = User::select($checkedFields)->latest()->get();
      
      
-#####4. Hide & show columns script
+4. Hide & show columns script
        // Hide & show columns
           $('#but_showhide').click(function(){
              var checked_arr = [];var unchecked_arr = [];
@@ -126,16 +126,16 @@ Start the local development server
              empDataTable.columns(unchecked_arr).visible(true);
           })
         })
-####5. resize and drag and drop columns function example 
+5. resize and drag and drop columns function example 
     please add one library more detail click here (https://github.com/jeffreydwalter/ColReorderWithResize)
     
-    <script src="https://cdn.jsdelivr.net/gh/jeffreydwalter/ColReorderWithResize@9ce30c640e394282c9e0df5787d54e5887bc8ecc/ColReorderWithResize.js"></script>
-    $(document).ready(function (){
-        var table = $('#example').DataTable({
-            'ajax': 'your path',
-            'dom': 'Rlfrtip'
+        <script src="https://cdn.jsdelivr.net/gh/jeffreydwalter/ColReorderWithResize@9ce30c640e394282c9e0df5787d54e5887bc8ecc/ColReorderWithResize.js"></script>
+        $(document).ready(function (){
+            var table = $('#example').DataTable({
+                'ajax': 'your path',
+                'dom': 'Rlfrtip'
+            });
         });
-    });
   
 ## Contributing
 
