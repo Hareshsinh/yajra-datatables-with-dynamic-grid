@@ -46,9 +46,7 @@
             <input type="hidden" id="fieldwidth" value="{{ $fieldwidth }}">
             <br/>
             <div class="loader" style="display:none;position:absolute;top:50%;left:50%;padding:2px; z-index: 10"></div>
-            <div class="container-fluidr
-
-">
+            <div class="container-fluidr">
                 <div class="row ">
                     <div class="col-md-3 border border-secondary rounded align-items-center">
                         <div class="checkbox-data" style="margin-top: 3px;">
@@ -142,6 +140,7 @@
                 // Show the unchecked columns
                 table.columns(unchecked_arr).visible(true);
                 updateColsInfo();
+                location.reload();
                 table.ajax.reload( null, false );
             });
 
